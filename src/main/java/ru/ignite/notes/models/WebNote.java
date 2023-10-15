@@ -4,6 +4,8 @@ public class WebNote {
     private int id;
     private String note;
 
+    public WebNote() {}
+
     public WebNote(int id, String note) {
         this.id = id;
         this.note = note;

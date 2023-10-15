@@ -28,4 +28,20 @@ public class WebNoteDAO {
     public WebNote show(int id) {
         return notes.stream().filter(n -> n.getId() == id).findAny().orElse(null);
     }
+
+    public void save(WebNote webNote) {
+        webNote.setId(++NOTES_COUNT);
+        notes.add(webNote);
+    }
+
+    public void delete(int id) {
+        notes.removeIf(n -> n.getId() == id);
+    }
+
+    public void update(int id, WebNote updatedNote) {
+        WebNote toUpdateNote = show(id);
+        toUpdateNote.setNote(updatedNote.getNote());
+
+
+    }
 }
